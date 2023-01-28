@@ -86,6 +86,10 @@
   height:315px;
 }
 
+.lorem{
+  color:red;
+}
+
 .image-thumb:hover{
 cursor: pointer;
 border: #007ac1;

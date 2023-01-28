@@ -20,8 +20,11 @@ const fetcher = async () => {
   // If you want to avoid this step, consider using the GraphQL API
   const entries = entryItems.items.map((entry) => {
     const { fields } = entry
+    console.log("==>",fields, entry)
     return {
       name: fields.name,
+      songList: fields.lista,
+      spotifyList: fields.spotifyList,
       image: fields.image.fields.file.url,
       alt: fields.image.fields.title,
       artist: fields.artist.fields.name,
@@ -74,7 +77,7 @@ function App() {
       const found = painting.tags.some((r) => selectedTags.includes(r))
       return found
     })
-    .map(({ name, image, alt, artist }, i) => {
+    .map(({ name, image, alt, artist, songList,spotifyList }, i) => {
       return (
         <Painting
           key={i}
@@ -82,6 +85,8 @@ function App() {
           image={image}
           alt={alt}
           artist={artist}
+          songList={songList}
+          spotifyList={spotifyList}
         ></Painting>
       )
     })
@@ -90,7 +95,7 @@ function App() {
     <main>
       <Content />
       <p className="tags">
-        👉<b>Tags</b>:{checkboxes}
+        👉<b>Worship Song Type:</b>:{checkboxes}
       </p>
       <div className="grid">{paintings}</div>
     </main>

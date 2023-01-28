@@ -29,7 +29,7 @@ const Painting = ({ name, image, alt, artist, songList, spotifyList }) => {
           <div className="card-body">
             <ReactMarkdown>{songList}</ReactMarkdown>
             <a
-              className="spotify btn btn-outline-warning w-100"
+              className="spotify btn btn-outline-info w-100"
               href={spotifyList}
               target="_blank"
             >

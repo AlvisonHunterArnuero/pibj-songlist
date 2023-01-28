@@ -64,12 +64,22 @@ function App() {
 
   const checkboxes = tags.map((tag) => {
     return (
-      <label htmlFor={tag} key={tag}>
-        <input type="checkbox" onChange={onTagSelected} name={tag} id={tag} />
-        {tag}
-      </label>
+      <div className="form-check form-check-inline mx-2">
+        <input
+          className="form-check-input"
+          type="checkbox"
+          value=""
+          onChange={onTagSelected}
+          name={tag}
+          id={tag}
+        />
+        <label className="form-check-label" htmlFor={tag} key={tag}>
+          {tag}
+        </label>
+      </div>
     )
   })
+
 
   const paintings = entries
     .filter((painting) => {
@@ -94,10 +104,10 @@ function App() {
   return (
     <main>
       <Content />
-      <p className="tags">
-        👉<b>Worship Song Type:</b>:{checkboxes}
+      <p className="r">
+        👉<b>Song Genre:</b>:{checkboxes}
       </p>
-      <div className="grid">{paintings}</div>
+      <div className="gri">{paintings}</div>
     </main>
   )
 }

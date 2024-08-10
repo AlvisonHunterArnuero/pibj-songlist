@@ -90,6 +90,7 @@ cursor: pointer;
 border: #007ac1;
 border-radius: 1.5em;
 }
+
 @media screen and (min-width: 40em) {
   .river:nth-child(even) {
     flex-direction: row-reverse;

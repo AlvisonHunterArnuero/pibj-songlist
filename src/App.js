@@ -20,7 +20,6 @@ const fetcher = async () => {
   // If you want to avoid this step, consider using the GraphQL API
   const entries = entryItems.items.map((entry) => {
     const { fields } = entry
-    console.log("==>",fields, entry)
     return {
       name: fields.name,
       songList: fields.lista,
@@ -42,8 +41,7 @@ function App() {
   const { data, error } = useSWR('contentful', fetcher)
 
   if (error) {
-    console.log(error)
-    return <div>failed to load </div>
+    return <div>failed to load {error} </div>
   }
   if (!data) return <Spinner size="large" />
 

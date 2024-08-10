@@ -2,8 +2,8 @@ const YTFrame = ({ youTubeLink }) => {
   return (
     <>
       <iframe
-        width="560"
-        height="315"
+        width="640"
+        height="365"
         src={youTubeLink}
         title="YouTube video player"
         frameborder="0"

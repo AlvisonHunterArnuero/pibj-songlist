@@ -1,14 +1,15 @@
-const laptop = new URL('./assets/logo.png', import.meta.url)
+const churchLogo = new URL('./assets/logo.png', import.meta.url)
 
-const Content = () => {
+const TopHeader = () => {
   return (
     <>
       <div className="container mt-3">
         <div className="row justify-content-between align-items-center">
           <div className="col-12 col-md-6">
             <img
-              src={laptop}
-              alt="Laptop with a play button"
+              src={churchLogo}
+              alt="Primera Iglesia Bautista de Jinotepe"
+              title="Primera Iglesia Bautista de Jinotepe - created by Alvison Hunter"
               aria-hidden="true"
             />
           </div>
@@ -21,9 +22,10 @@ const Content = () => {
                 Lista de Alabanzas
               </h1>
               <p>
-                El proposito de esta app es presentar la lista establecida de
-                cantos que se usaran en los servicios de culto evangelico de
-                nuestra iglesia.
+                El propósito de esta aplicación es presentar la lista oficial de
+                cantos que se utilizarán en los servicios de culto evangélico de
+                nuestra iglesia, facilitando la organización y participación en
+                cada celebración de nuestro grupo de Alabanza.
               </p>
             </article>
           </div>
@@ -33,4 +35,4 @@ const Content = () => {
   )
 }
 
-export default Content
+export default TopHeader

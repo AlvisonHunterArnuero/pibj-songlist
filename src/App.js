@@ -2,8 +2,8 @@ import useSWR from 'swr'
 import { useState } from 'react'
 import { Spinner } from '@contentful/f36-spinner'
 import { createClient } from 'contentful'
-import Painting from './Painting'
-import Content from './Content'
+import PlaylistWrapper from './PlaylistWrapper'
+import TopHeader from './TopHeader'
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -13,7 +13,6 @@ const client = createClient({
 const fetcher = async () => {
   const entryItems = await client.getEntries({ content_type: 'painting' })
   const tagItems = await client.getTags()
-
   const tags = tagItems.items.map((tag) => tag.name)
 
   // Process the data from the Contentful REST API into a neater object
@@ -60,9 +59,9 @@ function App() {
     setSelectedTags(selectedTags.slice())
   }
 
-  const checkboxes = tags.map((tag) => {
+  const TagsFilter = tags.map((tag) => {
     return (
-      <div className="form-check form-check-inline mx-2">
+      <div className="form-check form-check-inline mx-2" key={tag}>
         <input
           className="form-check-input"
           type="checkbox"
@@ -79,15 +78,15 @@ function App() {
   })
 
 
-  const paintings = entries
-    .filter((painting) => {
+  const RenderPlaylist = entries
+    .filter((playlist) => {
       if (selectedTags.length === 0) return true
-      const found = painting.tags.some((r) => selectedTags.includes(r))
+      const found = playlist.tags.some((r) => selectedTags.includes(r))
       return found
     })
     .map(({ name, image, alt, artist, songList,spotifyList }, i) => {
       return (
-        <Painting
+        <PlaylistWrapper
           key={i}
           name={name}
           image={image}
@@ -95,17 +94,17 @@ function App() {
           artist={artist}
           songList={songList}
           spotifyList={spotifyList}
-        ></Painting>
+        ></PlaylistWrapper>
       )
     })
 
   return (
     <main>
-      <Content />
-      <p className="r">
-        👉<b>Song Genre:</b>:{checkboxes}
-      </p>
-      <div className="gri">{paintings}</div>
+      <TopHeader />
+      <div className="align-items-center w-100">
+        🏷️ <b> Filtrar por Tags:</b>:{TagsFilter}
+      </div>
+      <div className="">{RenderPlaylist}</div>
     </main>
   )
 }

@@ -18,15 +18,7 @@
     "prepare": "husky",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "pre-commit": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write . && git add -A ."
-    }
-  },
-  "lint-staged": {
-    "*": "prettier --write"
+    "pre-commit": "prettier --write . && git add -A ."
   },
   "browserslist": [
     "last 1 chrome version",

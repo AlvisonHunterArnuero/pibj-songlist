@@ -42,7 +42,7 @@
   margin-right: var(--spacing-m);
 }
 
-.river>img {
+.river > img {
   width: 100%;
   max-width: 450px;
 }
@@ -78,17 +78,15 @@
   color: #007ac1;
 }
 
-
-.image-thumb{
-  width:560px;
-  height:315px;
+.image-thumb {
+  width: 560px;
+  height: 315px;
 }
 
-
-.image-thumb:hover{
-cursor: pointer;
-border: #007ac1;
-border-radius: 1.5em;
+.image-thumb:hover {
+  cursor: pointer;
+  border: #007ac1;
+  border-radius: 1.5em;
 }
 
 @media screen and (min-width: 40em) {
@@ -101,7 +99,7 @@ border-radius: 1.5em;
   }
 
   .river article,
-  .river>img {
+  .river > img {
     width: 50%;
   }
 }

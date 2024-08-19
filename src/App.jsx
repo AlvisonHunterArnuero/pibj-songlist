@@ -77,14 +77,13 @@ function App() {
     )
   })
 
-
   const RenderPlaylist = entries
     .filter((playlist) => {
       if (selectedTags.length === 0) return true
       const found = playlist.tags.some((r) => selectedTags.includes(r))
       return found
     })
-    .map(({ name, image, alt, artist, songList,spotifyList }, i) => {
+    .map(({ name, image, alt, artist, songList, spotifyList }, i) => {
       return (
         <PlaylistWrapper
           key={i}

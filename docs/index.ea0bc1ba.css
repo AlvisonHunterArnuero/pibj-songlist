@@ -1,7 +1,8 @@
-@import "https://unpkg.com/modern-css-reset/dist/reset.min.css";
-@import "https://unpkg.com/@contentful/f36-tokens@4.0.1/dist/css/index.css";
-@import "https://www.contentful.com/fonts.css";
-body, html {
+@import 'https://unpkg.com/modern-css-reset/dist/reset.min.css';
+@import 'https://unpkg.com/@contentful/f36-tokens@4.0.1/dist/css/index.css';
+@import 'https://www.contentful.com/fonts.css';
+body,
+html {
   margin: 0;
   padding: 0;
 }
@@ -86,12 +87,18 @@ button.button-large {
   padding: var(--spacing-xs) var(--spacing-m);
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin-bottom: var(--spacing-l);
 }
 
-h1, h2, h3 {
-  letter-spacing: -.02rem;
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02rem;
   font-weight: 800;
 }
 
@@ -122,7 +129,7 @@ p {
 }
 
 small {
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: red;
   margin-bottom: 8px;
@@ -230,11 +237,12 @@ small {
     flex-direction: row-reverse;
   }
 
-  .river:nth-child(2n+1) {
+  .river:nth-child(2n + 1) {
     flex-direction: row;
   }
 
-  .river article, .river > img {
+  .river article,
+  .river > img {
     width: 50%;
   }
 }

@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import { useState } from 'react'
 import { Spinner } from '@contentful/f36-spinner'
 import { createClient } from 'contentful'
-import PlaylistWrapper from './PlaylistWrapper'
+import PlaylistWrapper from './components/PlaylistWrapper/index'
 import TopHeader from './TopHeader'
 
 const client = createClient({

@@ -14,7 +14,9 @@
   "scripts": {
     "dev": "parcel ./public/index.html --open",
     "build": "parcel build ./public/index.html",
-    "setup": "node ./contentful/setup.js"
+    "setup": "node ./contentful/setup.js",
+    "prepare": "husky",
+    "pre-commit": "lint-staged"
   },
   "browserslist": [
     "last 1 chrome version",
@@ -23,6 +25,8 @@
   ],
   "devDependencies": {
     "buffer": "^5.5.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
     "parcel": "^2.8.3",
     "process": "^0.11.10"
   }

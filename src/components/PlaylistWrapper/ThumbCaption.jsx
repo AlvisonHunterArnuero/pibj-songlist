@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ThumbCaption() {
+function ThumbCaption({ thumbCaptionText }) {
   const smallCaption = {
     display: 'block',
     marginTop: '12px',
@@ -9,7 +9,7 @@ function ThumbCaption() {
   }
   return (
     <div style={smallCaption}>
-      Haga click en la imagen para reproducir el video
+      {`${thumbCaptionText} || Haga click en la imagen para reproducir el video`}
     </div>
   )
 }

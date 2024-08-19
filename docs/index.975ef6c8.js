@@ -49187,8 +49187,7 @@ styleSheet.flush()
               (c >= 0x30 && c <= 0x39) || // 0-9
               (c >= 0x41 && c <= 0x5a) || // a-z
               (c >= 0x61 && c <= 0x7a) || // A-Z
-              (format === formats.RFC1738 &&
-                (c === 0x28 || c === 0x29)) // ( )
+              (format === formats.RFC1738 && (c === 0x28 || c === 0x29)) // ( )
             ) {
               out += string.charAt(i)
               continue
@@ -55566,8 +55565,7 @@ styleSheet.flush()
             ;[].splice.apply(list, parameters)
           } else {
             // Delete `remove` items starting from `start`
-            if (remove)
-              [].splice.apply(list, [start, remove]) // Insert the items in chunks to not cause stack overflows.
+            if (remove) [].splice.apply(list, [start, remove]) // Insert the items in chunks to not cause stack overflows.
             while (chunkStart < items.length) {
               parameters = items.slice(chunkStart, chunkStart + 10000)
               parameters.unshift(start, 0) // @ts-expect-error Hush, it’s fine.

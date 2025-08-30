@@ -26,6 +26,7 @@ const fetcher = async () => {
       image: fields.image.fields.file.url,
       alt: fields.image.fields.title,
       artist: fields.artist.fields.name,
+      chordsheetName: fields.chordsheetName ? fields.chordsheetName : 'Acordes',
       tags: entry.metadata.tags
         .map((t) => tagItems.items.find((ti) => ti.sys.id === t.sys.id))
         .map((t) => t.name),
@@ -83,19 +84,25 @@ function App() {
       const found = playlist.tags.some((r) => selectedTags.includes(r))
       return found
     })
-    .map(({ name, image, alt, artist, songList, spotifyList }, i) => {
-      return (
-        <PlaylistWrapper
-          key={i}
-          name={name}
-          image={image}
-          alt={alt}
-          artist={artist}
-          songList={songList}
-          spotifyList={spotifyList}
-        ></PlaylistWrapper>
-      )
-    })
+    .map(
+      (
+        { name, image, alt, artist, songList, spotifyList, chordsheetName },
+        i
+      ) => {
+        return (
+          <PlaylistWrapper
+            key={i}
+            name={name}
+            image={image}
+            alt={alt}
+            artist={artist}
+            songList={songList}
+            spotifyList={spotifyList}
+            chordsheetName={chordsheetName}
+          ></PlaylistWrapper>
+        )
+      }
+    )
 
   return (
     <main>

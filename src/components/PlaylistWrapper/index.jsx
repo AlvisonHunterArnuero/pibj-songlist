@@ -10,6 +10,7 @@ const PlaylistWrapper = ({
   artist,
   songList,
   spotifyList,
+  chordsheetName,
 }) => {
   const [showVideoList, setShowVideoList] = useState(true)
   const [isHovered, setIsHovered] = useState(false)
@@ -41,7 +42,11 @@ const PlaylistWrapper = ({
             <div className="card-body">
               <ReactMarkdown>{songList}</ReactMarkdown>
             </div>
-            <WatchOnYouTubeBtn ytList={spotifyList} name={name} />
+            <WatchOnYouTubeBtn
+              ytList={spotifyList}
+              name={name}
+              chordsheetName={chordsheetName}
+            />
           </div>
         </div>
       </div>

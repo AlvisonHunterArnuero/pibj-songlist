@@ -56,3 +56,7 @@ Runs the app in the development mode.
 ### `npm run build`
 
 Builds the app for production to the `dist` folder.
+
+Externals dependencies:
+
+This app uses **SimplePDF**, a powerful PDF editor directly into your React App. Easily add **SimplePDF** to your React app, by using the EmbedPDF component. More information on [this link]:(https://github.com/SimplePDF/simplepdf-embed/blob/main/react/README.md)

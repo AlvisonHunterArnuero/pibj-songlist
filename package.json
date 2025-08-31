@@ -4,6 +4,7 @@
   "dependencies": {
     "@contentful/f36-spinner": "^4.25.1",
     "@simplepdf/react-embed-pdf": "^1.9.0",
+    "bootstrap-icons": "^1.13.1",
     "contentful": "^9.2.19",
     "contentful-import": "^8.5.23",
     "dotenv": "^16.0.3",

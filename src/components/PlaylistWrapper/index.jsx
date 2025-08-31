@@ -39,6 +39,9 @@ const PlaylistWrapper = ({
 
         <div className="col-12 col-md-5">
           <div className="card text-white bg-dark mb-3">
+            <div className="card-header text-uppercase text-info small">
+              {name} - Culto Evangelico
+            </div>
             <div className="card-body">
               <ReactMarkdown>{songList}</ReactMarkdown>
             </div>

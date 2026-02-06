@@ -29,65 +29,140 @@ body {
   font-family: 'Avenir Next W01';
   margin: 0;
   color: var(--text-color);
-  background: var(--bkg);
+  background: var(--gradient-bg);
+  background-attachment: fixed;
   line-height: var(--line-height-default);
+  position: relative;
+  min-height: 100vh;
 }
 
-/* Buttons in f36 default to Medium size */
+/* Subtle animated background overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(0, 122, 193, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(241, 103, 38, 0.03) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons - Enhanced with modern gradients and animations */
 button {
-  border: 1px solid;
-  box-shadow: 0px 1px 0px rgb(25, 37, 50, 0.08);
+  border: none;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
   outline: none;
-  border-radius: var(--border-radius-medium);
+  border-radius: 12px;
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-condensed);
   padding: var(--spacing-2xs) var(--spacing-m);
-  min-height: 32px;
+  min-height: 36px;
   cursor: pointer;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
 
-  /* Making a choice here to default to the "Primary" variant */
+  /* Primary gradient by default */
   color: var(--color-white);
-  background: var(--blue-500);
-  border-color: var(--blue-500);
+  background: linear-gradient(135deg, #007ac1 0%, #1a8ed9 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1a8ed9 0%, #3aa3e3 100%);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
 }
 
 button:hover {
-  background: var(--blue-600);
-  border-color: var(--blue-600);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 0 20px rgba(0, 122, 193, 0.4),
+    0px 8px 16px rgba(0, 0, 0, 0.25);
 }
+
+button:hover::before {
+  opacity: 1;
+}
+
 button:focus {
-  border-color: var(--blue-600);
-  box-shadow: var(--glow-primary);
+  box-shadow:
+    0 0 0 3px rgba(0, 122, 193, 0.3),
+    0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 button:focus:not(:focus-visible) {
-  border-color: var(--color-blue500);
-  box-shadow: unset;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 button:focus-visible {
-  border-color: var(--color-blue-600);
-  box-shadow: var(--glow-primary);
+  box-shadow:
+    0 0 0 3px rgba(0, 122, 193, 0.4),
+    0px 4px 12px rgba(0, 0, 0, 0.2);
+  outline: 2px solid #1a8ed9;
+  outline-offset: 2px;
+}
+
+button:active {
+  transform: translateY(0px) scale(0.98);
 }
 
 button > a {
   text-decoration: none;
   font-weight: normal;
+  color: inherit;
+  position: relative;
+  z-index: 1;
 }
 
 button.button-secondary {
-  background: var(--gray-200);
-  color: var(--gray-900);
-  background: var(--color-white);
-  border-color: var(--gray-300);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+button.button-secondary::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+button.button-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.1),
+    0px 8px 16px rgba(0, 0, 0, 0.25);
 }
 
 button.button-large {
-  font-weight: var(--font-size-xl);
+  font-size: var(--font-size-xl);
   line-height: var(--line-height-xl);
   min-height: 48px;
   padding: var(--spacing-xs) var(--spacing-m);
+  border-radius: 14px;
 }
 
 h1,

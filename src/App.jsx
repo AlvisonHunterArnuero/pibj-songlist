@@ -41,9 +41,15 @@ function App() {
   const { data, error } = useSWR('contentful', fetcher)
 
   if (error) {
-    return <div>failed to load {error} </div>
+    return <div className="text-center mt-5">failed to load {error} </div>
   }
-  if (!data) return <Spinner size="large" />
+  if (!data) {
+    return (
+      <div className="text-center mt-5 fade-in">
+        <Spinner size="large" />
+      </div>
+    )
+  }
 
   const { tags, entries } = data
 
@@ -62,18 +68,16 @@ function App() {
 
   const TagsFilter = tags.map((tag) => {
     return (
-      <div className="form-check form-check-inline mx-2" key={tag}>
+      <div className="tag-filter-item" key={tag}>
         <input
-          className="form-check-input"
+          className="custom-checkbox"
           type="checkbox"
           value=""
           onChange={onTagSelected}
           name={tag}
           id={tag}
         />
-        <label className="form-check-label" htmlFor={tag} key={tag}>
-          {tag}
-        </label>
+        <label htmlFor={tag}>{tag}</label>
       </div>
     )
   })
@@ -86,7 +90,16 @@ function App() {
     })
     .map(
       (
-        { name, image, alt, artist, songList, spotifyList, chordsheetName },
+        {
+          name,
+          image,
+          alt,
+          artist,
+          songList,
+          spotifyList,
+          chordsheetName,
+          tags,
+        },
         i
       ) => {
         return (
@@ -99,6 +112,7 @@ function App() {
             songList={songList}
             spotifyList={spotifyList}
             chordsheetName={chordsheetName}
+            tags={tags}
           ></PlaylistWrapper>
         )
       }
@@ -107,10 +121,13 @@ function App() {
   return (
     <main>
       <TopHeader />
-      <div className="align-items-center w-100">
-        🏷️ <b> Filtrar por Tags:</b>:{TagsFilter}
+      <div className="filter-section slide-in-right">
+        <div className="filter-label">
+          🏷️ <span>Filtrar por Tags:</span>
+        </div>
+        <div className="d-flex flex-wrap">{TagsFilter}</div>
       </div>
-      <div className="">{RenderPlaylist}</div>
+      <div>{RenderPlaylist}</div>
     </main>
   )
 }

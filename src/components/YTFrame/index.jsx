@@ -1,6 +1,6 @@
 const YTFrame = ({ youTubeLink }) => {
   return (
-    <>
+    <div className="yt-frame-container">
       <iframe
         width="640"
         height="365"
@@ -11,7 +11,7 @@ const YTFrame = ({ youTubeLink }) => {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
-    </>
+    </div>
   )
 }
 

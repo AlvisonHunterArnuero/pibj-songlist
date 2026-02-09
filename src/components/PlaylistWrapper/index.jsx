@@ -4,6 +4,7 @@ import YTFrame from '../YTFrame'
 import ThumbCaption from './ThumbCaption'
 import WatchOnYouTubeBtn from './WatchOnYouTubeBtn'
 import TagPills from './TagPills'
+import { decodePlaylistHtml } from '../../utils'
 
 const PlaylistWrapper = ({
   name,
@@ -17,6 +18,8 @@ const PlaylistWrapper = ({
 }) => {
   const [showVideoList, setShowVideoList] = useState(true)
   const [isHovered, setIsHovered] = useState(false)
+
+  const cleanYouTubeUrl = decodePlaylistHtml(spotifyList)
 
   return (
     <div className="playlist-card fade-in-up">
@@ -35,7 +38,7 @@ const PlaylistWrapper = ({
                   <div className="playlist-image-overlay"></div>
                 </>
               ) : (
-                <YTFrame youTubeLink={spotifyList} />
+                <YTFrame youTubeLink={cleanYouTubeUrl} />
               )}
             </div>
             <ThumbCaption />

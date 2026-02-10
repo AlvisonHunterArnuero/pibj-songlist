@@ -5,22 +5,22 @@ import { getYouTubePlaylistId } from '../../utils'
 
 function WatchOnYouTubeBtn({ ytList, chordsheetName, name }) {
   const { fields } = chordsheetName || {}
-  const listId = useMemo(() => getYouTubePlaylistId(ytList), [ytList]);
+  const listId = useMemo(() => getYouTubePlaylistId(ytList), [ytList])
   const youtubeLink = listId
     ? `https://www.youtube.com/playlist?list=${listId}`
-    : null;
+    : null
 
   return (
     <div className="card-footer d-flex flex-column flex-xl-row justify-content-center align-items-center gap-2 gap-md-3 py-3">
       {youtubeLink && (
-         <a
-        className="btn btn-gradient-primary text-uppercase w-100 w-xl-50"
-        href={youtubeLink}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i className="bi bi-play-btn-fill me-2"></i>Lista de Videos
-      </a>
+        <a
+          className="btn btn-gradient-primary text-uppercase w-100 w-xl-50"
+          href={youtubeLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="bi bi-play-btn-fill me-2"></i>Lista de Videos
+        </a>
       )}
       {fields && (
         <EmbedPDF>

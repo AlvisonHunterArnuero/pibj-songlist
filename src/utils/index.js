@@ -1,3 +1,6 @@
+const decoderElement =
+  typeof document !== 'undefined' ? document.createElement('textarea') : null
+
 /**
  * Decodes HTML entities back into plain text using a temporary DOM element.
  * * This is particularly useful for cleaning up URLs or text that may contain
@@ -10,10 +13,11 @@
  * const decoded = decodePlaylistHtml(encoded);
  * // Result: "https://youtube.com/list?id=123&index=1"
  */
+
 const decodePlaylistHtml = (value = '') => {
-  const txt = document.createElement('textarea')
-  txt.innerHTML = value
-  return txt.value
+  if (!decoderElement) return value
+  decoderElement.innerHTML = value
+  return decoderElement.value
 }
 
 /**

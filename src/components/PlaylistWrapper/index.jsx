@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import YTFrame from '../YTFrame'
 import ThumbCaption from './ThumbCaption'
 import WatchOnYouTubeBtn from './WatchOnYouTubeBtn'
@@ -60,7 +61,9 @@ const PlaylistWrapper = ({
                 {name} - Culto Evangelico
               </div>
               <div className="card-body">
-                <ReactMarkdown>{songList}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {songList}
+                </ReactMarkdown>
               </div>
               <WatchOnYouTubeBtn
                 ytList={spotifyList}
